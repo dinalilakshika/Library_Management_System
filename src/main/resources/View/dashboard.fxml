@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.Controller.DashboardFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controller.DashboardFormController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="160.0" style="-fx-background-color: #7dbcff;">
+         <children>
+            <JFXButton layoutX="40.0" layoutY="107.0" prefHeight="27.0" prefWidth="121.0" style="-fx-background-color: #0c4078;" text="Home" textFill="WHITE" />
+            <JFXButton layoutX="40.0" layoutY="154.0" prefHeight="27.0" prefWidth="121.0" style="-fx-background-color: #0c4078;" text="Book" textFill="WHITE" />
+            <JFXButton layoutX="41.0" layoutY="200.0" prefHeight="27.0" prefWidth="121.0" style="-fx-background-color: #0c4078;" text="Customer" textFill="WHITE" />
+            <JFXButton layoutX="40.0" layoutY="238.0" prefHeight="27.0" prefWidth="121.0" style="-fx-background-color: #0c4078;" text="Transaction" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
