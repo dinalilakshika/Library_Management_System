@@ -1,4 +1,6 @@
 package org.example.Controller;
 
-public class LoginFormController {
+import javafx.fxml.Initializable;
+
+public class LoginFormController  {
 }
