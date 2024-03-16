@@ -1,5 +1,10 @@
 package org.example.BO;
 
+import org.example.BO.custom.impl.AdminBOImpl;
+import org.example.BO.custom.impl.BookBOImpl;
+import org.example.BO.custom.impl.TransactionBOImpl;
+import org.example.BO.custom.impl.UserBOImpl;
+
 public class BOFactory {
     private static BOFactory bofactory;
 

@@ -1,9 +1,15 @@
 package org.example.BO.custom;
 
+import org.example.BO.SuperBO;
+import org.example.DTO.BookDTO;
+import org.example.DTO.TransactionDTO;
+import org.example.DTO.UserDTO;
+import org.example.Entity.Transactions;
+
 import java.util.List;
 
 public interface TransactionBO extends SuperBO {
-    List<TransactionDTO> getAll();
+    List<Transactions> getAll();
     List<String> getAllBookId();
     List<String> getUserId();
     BookDTO getBook(String book);

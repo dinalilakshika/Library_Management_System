@@ -1,7 +1,13 @@
 package org.example.BO.custom;
 
+import org.example.BO.SuperBO;
+import org.example.DTO.AdminDTO;
+import org.example.DTO.UserDTO;
+
 public interface AdminBO extends SuperBO {
-    boolean saveUser(AdminDTO userDTO);
-    AdminDTO getUser(AdminDTO userDTO);
-    boolean updateUser(AdminDTO userDTO);
+    boolean saveAdmin(AdminDTO adminDTO);
+
+    boolean updateAdmin(AdminDTO userDTO);
+
+    AdminDTO getAdmin(AdminDTO adminDTO);
 }

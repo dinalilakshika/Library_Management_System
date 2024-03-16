@@ -1,6 +1,11 @@
 package org.example.DAO.custom.impl;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import javafx.scene.control.Alert;
+import org.example.Config.FactoryConfiguration;
+import org.example.DAO.custom.BookDAO;
+import org.example.Entity.Book;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

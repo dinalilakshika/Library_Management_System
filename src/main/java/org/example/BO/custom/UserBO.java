@@ -1,5 +1,8 @@
 package org.example.BO.custom;
 
+import org.example.BO.SuperBO;
+import org.example.DTO.UserDTO;
+
 import java.util.List;
 
 public interface UserBO extends SuperBO {

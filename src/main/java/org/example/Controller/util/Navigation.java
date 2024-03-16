@@ -17,10 +17,10 @@ public class Navigation {
         try {
             switch (rout) {
                 case LOGIN:
-                    initUi("loginform.fxml");
+                    initUi("Loginform.fxml");
                     break;
                 case SIGNUP:
-                    initUi("signupform.fxml");
+                    initUi("signup_form.fxml");
                     break;
                 case DASHBOARD:
                     initUi("dashboardform.fxml");
