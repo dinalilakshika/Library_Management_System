@@ -2,8 +2,11 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 import static javafx.application.Application.launch;
 
@@ -12,14 +15,13 @@ public class Launcher extends Application{
         launch(args);
     }
 
-
     @Override
-    public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/Loginform.fxml")));
-        stage.setScene(scene);
-        stage.setTitle("Library_Management");
-        stage.centerOnScreen();
-        stage.show();
+    public void start(Stage primaryStage) throws IOException {
+        Parent parent = FXMLLoader.load(this.getClass().getResource("/view/UserLoginForm.fxml"));
+        Scene scene = new Scene(parent);
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+        primaryStage.show();
     }
 }
 
