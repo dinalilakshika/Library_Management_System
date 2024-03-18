@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -412,5 +413,21 @@ public class UserDashboardFormController {
     public void setLblUserName(){
         UserDTO userDTO = userBO.searchUser(UserLoginFormController.userId);
         lblUserName.setText("Hello! "+userDTO.getUserName());
+    }
+
+    @FXML
+    void lblChangePasswordOnAction(MouseEvent event) throws IOException {
+        BoxBlur blur = new BoxBlur(3, 3, 1);
+        root.setEffect(blur);
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/PasswordRequestForm.fxml"));
+        Scene scene =new Scene(parent);
+
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.showAndWait();
+        root.setEffect(null);
+        stage.setOnCloseRequest(e -> {
+            root.setEffect(null);
+        });
     }
 }

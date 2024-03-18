@@ -148,7 +148,7 @@ public class BorrowedBooksFormController {
                     if (b) {
                         boolean b1 = transactionBO.updateStatus(transactionId);
                         if (b1) {
-                            Image image = new Image("/assests/icons/iconsOk.png");
+                            Image image = new Image("/Assets/icons/iconsOk.png");
                             Notifications notifications = Notifications.create();
                             notifications.graphic(new ImageView(image));
                             notifications.text("Book return Successfully");
@@ -171,4 +171,3 @@ public class BorrowedBooksFormController {
     }
 
 }
-

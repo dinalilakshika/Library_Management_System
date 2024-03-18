@@ -19,6 +19,7 @@ import org.example.dto.UserTransactionDto;
 import org.example.tm.AdminHistoryTm;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,6 +65,7 @@ public class AdminTransactionHistoryFormController {
     public void initialize(){
         setCellValue();
         getAllTransaction();
+        setDate();
     }
 
     private void setCellValue() {
@@ -125,7 +127,7 @@ public class AdminTransactionHistoryFormController {
                     String transactionId = adminHistoryTm.getTransactionId();
                     boolean b = transactionBO.delete(transactionId);
                     if (b) {
-                        Image image=new Image("/assests/icons/iconsDelete.png");
+                        Image image=new Image("/Assets/icons/iconsDelete.png");
                         Notifications notifications=Notifications.create();
                         notifications.graphic(new ImageView(image));
                         notifications.text("Book Delete Successfully");
@@ -142,5 +144,8 @@ public class AdminTransactionHistoryFormController {
         });
     }
 
+    private void setDate() {
+        lblDate.setText(String.valueOf(LocalDate.now()));
+    }
 }
 

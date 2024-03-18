@@ -231,7 +231,7 @@ public class BorrowBookFormController {
         if (isSaved){
             boolean isBorrowed = booksBO.borrowBook(booksDTO.getId());
             if (isBorrowed){
-                Image image=new Image("/assests/icons/iconsOk.png");
+                Image image=new Image("/Assets/icons/iconsOk.png");
                 try {
                     Notifications notifications=Notifications.create();
                     notifications.graphic(new ImageView(image));

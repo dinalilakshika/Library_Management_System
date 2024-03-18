@@ -7,13 +7,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="786.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.BorrowBookFormController">
+<AnchorPane prefHeight="786.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.BorrowBookFormController">
     <children>
         <AnchorPane fx:id="subRoot" prefHeight="786.0" prefWidth="1282.0" style="-fx-background-color: #E5E9ED;">
             <children>
@@ -71,11 +69,6 @@
                         </Label>
                         <Pane fx:id="BooksDetailsPane" layoutX="14.0" layoutY="32.0" prefHeight="200.0" prefWidth="546.0" style="-fx-background-color: #FCFCFC;">
                             <children>
-                                <ImageView fitHeight="199.0" fitWidth="195.0" layoutX="330.0" layoutY="1.0">
-                                    <image>
-                                        <Image url="@../assests/24005145_6888606-removebg-preview.png" />
-                                    </image>
-                                </ImageView>
                                 <Label alignment="CENTER" layoutX="124.0" layoutY="56.0" text="Select a book form table" textFill="#1479ff">
                                     <font>
                                         <Font name="Arial Bold" size="12.0" />
@@ -151,11 +144,6 @@
                         </Label>
                         <Pane fx:id="BorrowBookPane" layoutX="14.0" layoutY="34.0" prefHeight="335.0" prefWidth="546.0" style="-fx-background-color: #FCFCFC;">
                             <children>
-                                <ImageView fitHeight="274.0" fitWidth="276.0" layoutX="246.0" layoutY="74.0">
-                                    <image>
-                                        <Image url="@../assests/24307396_6920933-removebg-preview.png" />
-                                    </image>
-                                </ImageView>
                                 <Label alignment="CENTER" layoutX="129.0" layoutY="75.0" text="Borrow a book" textFill="#1479ff">
                                     <font>
                                         <Font name="Arial Bold" size="12.0" />
@@ -174,13 +162,13 @@
         </Label>
         <Pane fx:id="tablePane" layoutX="42.0" layoutY="81.0" prefHeight="660.0" prefWidth="571.0" style="-fx-background-radius: 10px; -fx-background-color: #FCFCFC;">
             <children>
-                <TableView fx:id="tblBorrowBook" layoutX="13.0" layoutY="64.0" onMouseClicked="#selectBookOnAction" prefHeight="580.0" prefWidth="557.0" stylesheets="@../Style/Style.css">
+                <TableView fx:id="tblBorrowBook" layoutX="13.0" layoutY="64.0" onMouseClicked="#selectBookOnAction" prefHeight="580.0" prefWidth="557.0">
                     <columns>
                         <TableColumn fx:id="colName" prefWidth="386.4000244140625" text="Name" />
                         <TableColumn fx:id="colGenre" prefWidth="158.93325805664062" text="Genre" />
                     </columns>
                 </TableView>
-                <Label layoutX="238.0" layoutY="23.0" text="Search :" textFill="#1479ff">
+                <Label layoutX="238.0" layoutY="23.0" text="Search :" textFill="#3cc3bd">
                     <font>
                         <Font name="Arial Bold" size="12.0" />
                     </font>

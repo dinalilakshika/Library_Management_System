@@ -28,6 +28,7 @@ import org.example.tm.BooksTm;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class BooksFormController {
 
@@ -98,7 +99,7 @@ public class BooksFormController {
     @FXML
     void btnAddOnAction(ActionEvent event) {
         if(isEmptyCheck()){
-            Image image=new Image("/assests/icons/icons8-cancel-50.png");
+            Image image=new Image("/Assets/icons/icons8-cancel-50.png");
             try {
                 Notifications notifications=Notifications.create();
                 notifications.graphic(new ImageView(image));
@@ -111,38 +112,58 @@ public class BooksFormController {
                 e.printStackTrace();
             }
         }else {
-            String value = cmbAvailability.getValue();
-            boolean available;
-            if (value.equals("Available")){
-                available = true;
-            }else {
-                available=false;
-            }
-
-            List<Branches> branches=new ArrayList<>();
-
-            boolean b = booksBO.addBook(new BooksDTO(txtBookId.getText(), txtTitle.getText(), txtAuthor.getText(),
-                    cmbGenre.getValue(), available));
-
-            if (b){
-                Image image=new Image("/assests/icons/iconsOk.png");
-                try {
-                    Notifications notifications=Notifications.create();
-                    notifications.graphic(new ImageView(image));
-                    notifications.text("Book add success");
-                    notifications.title("success");
-                    notifications.hideAfter(Duration.seconds(5));
-                    notifications.position(Pos.TOP_RIGHT);
-                    notifications.show();
-                }catch (Exception e){
-                    e.printStackTrace();
+            if (validate()) {
+                String value = cmbAvailability.getValue();
+                boolean available;
+                if (value.equals("Available")) {
+                    available = true;
+                } else {
+                    available = false;
                 }
 
-                loadAllBooks();
-                clearField();
-                setTxtBookId();
+                List<Branches> branches = new ArrayList<>();
+
+                boolean b = booksBO.addBook(new BooksDTO(txtBookId.getText(), txtTitle.getText(), txtAuthor.getText(),
+                        cmbGenre.getValue(), available));
+
+                if (b) {
+                    Image image = new Image("/Assets/icons/iconsOk.png");
+                    try {
+                        Notifications notifications = Notifications.create();
+                        notifications.graphic(new ImageView(image));
+                        notifications.text("Book add success");
+                        notifications.title("success");
+                        notifications.hideAfter(Duration.seconds(5));
+                        notifications.position(Pos.TOP_RIGHT);
+                        notifications.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    loadAllBooks();
+                    clearField();
+                    setTxtBookId();
+                }
             }
         }
+    }
+
+    private boolean validate(){
+
+        boolean matches1 = Pattern.matches("^([ \\u00c0-\\u01ffa-zA-Z'\\-]{2,})+$", txtAuthor.getText());
+        if(!matches1){
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Invalid user name");
+            alert.showAndWait();
+            return false;
+        }
+
+        boolean matches2 = Pattern.matches("^([ \\u00c0-\\u01ffa-zA-Z'\\-]{2,})+$", txtTitle.getText());
+        if(!matches2){
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Invalid user name");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
     }
 
     public void loadAllBooks(){
@@ -224,7 +245,7 @@ public class BooksFormController {
                     boolean b = booksBO.deleteBook(bookId);
                     if (b) {
 
-                        Image image=new Image("/assests/icons/iconsDelete.png");
+                        Image image=new Image("/Assets/icons/iconsDelete.png");
                         Notifications notifications=Notifications.create();
                         notifications.graphic(new ImageView(image));
                         notifications.text("Book Delete Successfully");
@@ -252,7 +273,7 @@ public class BooksFormController {
         String bookId = txtBookId.getText();
         boolean b = booksBO.deleteBook(bookId);
         if (b) {
-            Image image=new Image("/assests/icons/iconsDelete.png");
+            Image image=new Image("/Assets/icons/iconsDelete.png");
             Notifications notifications=Notifications.create();
             notifications.graphic(new ImageView(image));
             notifications.text("Book Delete Successfully");
@@ -283,7 +304,7 @@ public class BooksFormController {
                 cmbGenre.setValue(bookDto.getGenre());
                 /*availabilityStatus.setValue(bookDto.isAvailability());*/
 
-                Image image=new Image("/assests/icons/iconsOk.png");
+                Image image=new Image("/Assets/icons/iconsOk.png");
                 try {
                     Notifications notifications=Notifications.create();
                     notifications.graphic(new ImageView(image));
@@ -304,7 +325,7 @@ public class BooksFormController {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         if (isEmptyCheck()){
-            Image image=new Image("/assest/icon/icons8-cancel-50.png");
+            Image image=new Image("/Assets/icon/icons8-cancel-50.png");
             try {
                 Notifications notifications=Notifications.create();
                 notifications.graphic(new ImageView(image));
@@ -331,7 +352,7 @@ public class BooksFormController {
                     cmbGenre.getValue(), available));
 
             if (b) {
-                Image image = new Image("/assests/icons/iconsOk.png");
+                Image image = new Image("/Assets/icons/iconsOk.png");
                 try {
                     Notifications notifications = Notifications.create();
                     notifications.graphic(new ImageView(image));
@@ -483,5 +504,4 @@ public class BooksFormController {
             return "B001";
         }
     }
-
 }

@@ -30,6 +30,7 @@ import org.example.tm.BranchesTm;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class BranchesFormController {
 
@@ -130,17 +131,14 @@ public class BranchesFormController {
 
 
             if (type.orElse(no) == yes) {
-                System.out.println("awa");
                 int focusedIndex = tblBranches.getSelectionModel().getSelectedIndex();
                 BranchesTm branchTm = (BranchesTm) tblBranches.getSelectionModel().getSelectedItem();
 
                 if (branchTm != null) {
                     String bookId = branchTm.getCode();
                     boolean b = branchesBO.deleteBranch(bookId);
-                    System.out.println("awa1");
                     if (b) {
-                        System.out.println("awa3");
-                        Image image=new Image("/assests/icons/iconsDelete.png");
+                        Image image=new Image("/Assets/icons/iconsDelete.png");
                         Notifications notifications=Notifications.create();
                         notifications.graphic(new ImageView(image));
                         notifications.text("Branch Delete Successfully");
@@ -185,7 +183,7 @@ public class BranchesFormController {
     @FXML
     void btnAddOnAction(ActionEvent event) {
         if(isEmptyCheck()){
-            Image image=new Image("/assests/icons/icons8-cancel-50.png");
+            Image image=new Image("/Assets/icons/icons8-cancel-50.png");
             try {
                 Notifications notifications=Notifications.create();
                 notifications.graphic(new ImageView(image));
@@ -198,29 +196,49 @@ public class BranchesFormController {
                 e.printStackTrace();
             }
         }else {
-            List<Books> books=new ArrayList<>();
+            if (validate()) {
+                List<Books> books = new ArrayList<>();
 
-            boolean b = branchesBO.addBranch(new BranchesDTO(txtBranchCode.getText(), txtLocation.getText(), txtContact.getText(), cmbStatus.getValue()));
+                boolean b = branchesBO.addBranch(new BranchesDTO(txtBranchCode.getText(), txtLocation.getText(), txtContact.getText(), cmbStatus.getValue()));
 
-            if (b){
-                Image image=new Image("/assests/icons/iconsOk.png");
-                try {
-                    Notifications notifications=Notifications.create();
-                    notifications.graphic(new ImageView(image));
-                    notifications.text("branch add success");
-                    notifications.title("success");
-                    notifications.hideAfter(Duration.seconds(5));
-                    notifications.position(Pos.TOP_RIGHT);
-                    notifications.show();
-                }catch (Exception e){
-                    e.printStackTrace();
+                if (b) {
+                    Image image = new Image("/Assets/icons/iconsOk.png");
+                    try {
+                        Notifications notifications = Notifications.create();
+                        notifications.graphic(new ImageView(image));
+                        notifications.text("branch add success");
+                        notifications.title("success");
+                        notifications.hideAfter(Duration.seconds(5));
+                        notifications.position(Pos.TOP_RIGHT);
+                        notifications.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    loadAllBranches();
+                    clearFields();
+                    setTxtBranchCode();
                 }
-
-                loadAllBranches();
-                clearFields();
-                setTxtBranchCode();
             }
         }
+    }
+
+    private boolean validate(){
+
+        boolean matches1 = Pattern.matches("^([ \\u00c0-\\u01ffa-zA-Z'\\-]{2,})+$", txtLocation.getText());
+        if(!matches1){
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Invalid user name");
+            alert.showAndWait();
+            return false;
+        }
+
+        boolean matches3 = Pattern.matches("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$", txtContact.getText());
+        if (!matches3) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Invalid contact number");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
     }
 
     private boolean isEmptyCheck() {
@@ -256,7 +274,7 @@ public class BranchesFormController {
         String bookId = txtBranchCode.getText();
         boolean b = branchesBO.deleteBranch(bookId);
         if (b) {
-            Image image=new Image("/assests/icons/iconsDelete.png");
+            Image image=new Image("/Assets/icons/iconsDelete.png");
             Notifications notifications=Notifications.create();
             notifications.graphic(new ImageView(image));
             notifications.text("Branch Delete Successfully");
@@ -284,7 +302,7 @@ public class BranchesFormController {
                 txtContact.setText(branchDto.getContactNumber());
                 cmbStatus.setValue(branchDto.getStatus());
 
-                Image image=new Image("/assests/icons/iconsOk.png");
+                Image image=new Image("/Assets/icons/iconsOk.png");
                 try {
                     Notifications notifications=Notifications.create();
                     notifications.graphic(new ImageView(image));
@@ -305,7 +323,7 @@ public class BranchesFormController {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         if (isEmptyCheck()){
-            Image image=new Image("/assests/icons/icons8-cancel-50.png");
+            Image image=new Image("/Assets/icons/icons8-cancel-50.png");
             try {
                 Notifications notifications=Notifications.create();
                 notifications.graphic(new ImageView(image));
@@ -322,7 +340,7 @@ public class BranchesFormController {
 
 
             if (b) {
-                Image image = new Image("/assests/icons/iconsOk.png");
+                Image image = new Image("/Assets/icons/iconsOk.png");
                 try {
                     Notifications notifications = Notifications.create();
                     notifications.graphic(new ImageView(image));

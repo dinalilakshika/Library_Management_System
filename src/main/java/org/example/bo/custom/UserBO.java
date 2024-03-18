@@ -2,6 +2,7 @@ package org.example.bo.custom;
 
 import org.example.bo.SuperBO;
 import org.example.dto.UserDTO;
+import org.example.entity.User;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface UserBO extends SuperBO {
     UserDTO searchUser(String id);
     boolean deleteUser(String id);
     public String getLastUserId();
+    public UserDTO searchByName(String userName);
 }

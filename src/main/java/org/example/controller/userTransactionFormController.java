@@ -16,6 +16,7 @@ import org.example.tm.BorrowedBookTm;
 import org.example.tm.UserHistoryTm;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +59,7 @@ public class userTransactionFormController {
     public void initialize(){
         setCellValue();
         getAllTransaction();
+        setDate();
     }
 
     private void setCellValue() {
@@ -89,5 +91,8 @@ public class userTransactionFormController {
 
         tblHistory.setItems(obList);
     }
-}
 
+    private void setDate() {
+        lblDate.setText(String.valueOf(LocalDate.now()));
+    }
+}

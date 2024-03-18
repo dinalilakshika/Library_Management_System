@@ -54,4 +54,11 @@ public class UserBoImpl implements UserBO {
     public String getLastUserId() {
         return userDAO.getLastUserId();
     }
+
+    @Override
+    public UserDTO searchByName(String userName) {
+        User search = userDAO.searchByName(userName);
+        UserDTO userDto = new UserDTO(search.getUserId(),search.getUserName(),search.getEmail(),search.getPassword());
+        return userDto;
+    }
 }
