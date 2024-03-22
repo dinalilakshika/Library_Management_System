@@ -22,18 +22,18 @@
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <JFXTextField fx:id="txtSearch" layoutX="943.0" layoutY="25.0" onAction="#txtSearchOnAction" prefHeight="34.0" prefWidth="216.0" style="-fx-text-fill: #193b68;" />
-                <JFXButton layoutX="1156.0" layoutY="27.0" onAction="#btnSearchOnAction" prefHeight="33.0" prefWidth="62.0" style="-fx-border-color: #1479ff; -fx-border-radius: 5px;" text="Search" textFill="#193b68">
+                <JFXTextField fx:id="txtSearch" layoutX="647.0" layoutY="28.0" onAction="#txtSearchOnAction" prefHeight="34.0" prefWidth="216.0" style="-fx-text-fill: #193b68;" />
+                <JFXButton layoutX="870.0" layoutY="41.0" onAction="#btnSearchOnAction" prefHeight="33.0" prefWidth="62.0" style="-fx-border-color: #1479ff; -fx-border-radius: 5px;" text="Search" textFill="#193b68">
                     <font>
                         <Font name="Arial Bold" size="12.0" />
                     </font>
                 </JFXButton>
-                <TableView fx:id="tblUser" layoutX="41.0" layoutY="296.0" onMouseClicked="#selectUserOnAction" prefHeight="450.0" prefWidth="1189.0" style="-fx-text-fill: #193b68;" stylesheets="@../Style/Style.css">
+                <TableView fx:id="tblUser" layoutX="41.0" layoutY="318.0" onMouseClicked="#selectUserOnAction" prefHeight="428.0" prefWidth="775.0" style="-fx-text-fill: #193b68;" stylesheets="@../Style/Style.css">
                     <columns>
-                        <TableColumn fx:id="colUserId" minWidth="0.0" prefWidth="147.20000839233398" text="User ID" />
-                        <TableColumn fx:id="colUserName" prefWidth="467.99998474121094" text="User name" />
-                        <TableColumn fx:id="colEmail" prefWidth="412.7999267578125" text="Email" />
-                        <TableColumn fx:id="colRemove" prefWidth="148.0" text="Delete user" />
+                        <TableColumn fx:id="colUserId" minWidth="0.0" prefWidth="128.0" text="User ID" />
+                        <TableColumn fx:id="colUserName" prefWidth="230.0" text="User name" />
+                        <TableColumn fx:id="colEmail" prefWidth="239.0" text="Email" />
+                        <TableColumn fx:id="colRemove" prefWidth="162.0" text="Delete user" />
                     </columns>
                 </TableView>
                 <Pane fx:id="userDetailsPane" layoutX="41.0" layoutY="85.0" prefHeight="170.0" prefWidth="563.0" style="-fx-background-color: #FCFCFC; -fx-background-radius: 10px;">
@@ -69,14 +69,9 @@
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
                         </Label>
-                        <Label fx:id="lblUserId" layoutX="472.0" layoutY="10.0" prefHeight="17.0" prefWidth="66.0" text="Label" />
+                        <Label fx:id="lblUserId" layoutX="472.0" layoutY="10.0" prefHeight="17.0" prefWidth="66.0" text="." />
                         <Pane fx:id="selectUserFromTablePane01" layoutX="5.0" layoutY="27.0" prefHeight="136.0" prefWidth="550.0" style="-fx-background-color: #FFFFFF;">
                             <children>
-                                <ImageView fitHeight="146.0" fitWidth="180.0" layoutX="356.0" layoutY="-17.0">
-                                    <image>
-                                        <Image url="@../Assets/1000_F_191429243_gOk8eO5squwWVdZagclllx8c7FCYhIlD.jpg" />
-                                    </image>
-                                </ImageView>
                                 <Label alignment="CENTER" layoutX="137.0" layoutY="27.0" text="Select user form table" textFill="#1479ff">
                                     <font>
                                         <Font name="Arial Bold" size="12.0" />

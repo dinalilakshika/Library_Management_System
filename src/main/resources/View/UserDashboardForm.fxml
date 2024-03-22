@@ -232,11 +232,6 @@
                                 </Label>
                             </children>
                         </Pane>
-                  <ImageView fitHeight="668.0" fitWidth="771.0" layoutY="-308.0" pickOnBounds="true" smooth="false">
-                     <image>
-                        <Image url="@../Assets/1000_F_692257871_MuYsi3FmgsYl1Kk5I4ciRiPs6RSIdEe1.jpg" />
-                     </image>
-                  </ImageView>
                     </children>
                 </Pane>
             </children>

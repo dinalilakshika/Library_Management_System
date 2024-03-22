@@ -12,7 +12,7 @@
     <children>
         <AnchorPane prefHeight="787.0" prefWidth="254.0" style="-fx-background-color: #FCFCFC;">
             <children>
-                <Label alignment="CENTER" layoutX="80.0" layoutY="19.0" text="BookStore" textFill="#077256">
+                <Label alignment="CENTER" layoutX="69.0" layoutY="24.0" text="BookStore" textFill="#077256">
                     <font>
                         <Font name="Arial Bold" size="24.0" />
                     </font>
@@ -142,7 +142,7 @@
                                 </Label>
                             </children>
                         </Pane>
-                        <Pane layoutX="550.0" layoutY="210.0" prefHeight="129.0" prefWidth="127.0" style="-fx-background-radius: 10px; -fx-border-color: #1479FF; -fx-border-radius: 10px; -fx-border-width: 2px;">
+                        <Pane layoutX="550.0" layoutY="210.0" prefHeight="129.0" prefWidth="127.0" style="-fx-background-radius: 10px; -fx-border-color: #1dd1a1; -fx-border-radius: 10px; -fx-border-width: 2px;">
                             <children>
                                 <Label layoutX="32.0" layoutY="27.0" text="Biography," textFill="#193b68">
                                     <font>
@@ -159,7 +159,7 @@
                                         <Font name="Arial Bold" size="12.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="lblBiographyAndAutobiographyAndMemoirCount" alignment="CENTER" layoutX="35.0" layoutY="89.0" prefHeight="21.0" prefWidth="56.0" text="00" textFill="#1479ff">
+                                <Label fx:id="lblBiographyAndAutobiographyAndMemoirCount" alignment="CENTER" layoutX="35.0" layoutY="89.0" prefHeight="21.0" prefWidth="56.0" text="00" textFill="#1dd1a1">
                                     <font>
                                         <Font name="Arial Bold" size="14.0" />
                                     </font>
@@ -232,11 +232,6 @@
                                 <Font name="Arial" size="14.0" />
                             </font>
                         </Label>
-                  <ImageView fitHeight="702.0" fitWidth="1461.0" layoutX="-481.0" layoutY="-24.0" pickOnBounds="true" smooth="false">
-                     <image>
-                        <Image url="@../Assets/library-with-books_1063-98.jpg" />
-                     </image>
-                  </ImageView>
                     </children>
                 </Pane>
                 <Label layoutX="42.0" layoutY="23.0" text="Dashboard" textFill="#193b68">
@@ -256,6 +251,7 @@
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
                         </Label>
+                  <ImageView fitHeight="774.0" fitWidth="1539.0" layoutX="-295.0" layoutY="-80.0" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </Pane>
                 <Pane fx:id="totalBooksPane" layoutX="40.0" layoutY="256.0" prefHeight="130.0" prefWidth="406.0" style="-fx-background-radius: 10px; -fx-background-color: #FCFCFC;">
